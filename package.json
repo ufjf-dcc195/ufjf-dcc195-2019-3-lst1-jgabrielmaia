@@ -1,0 +1,29 @@
+{
+  "name": "list-app",
+  "version": "1.0.0",
+  "description": "List of basic javascript and node exercises",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ufjf-dcc195/ufjf-dcc195-2019-3-lst1-jgabrielmaia.git"
+  },
+  "keywords": [
+    "List",
+    "Exercises",
+    "Javascript",
+    "NodeJS"
+  ],
+  "author": "J. Gabriel Maia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ufjf-dcc195/ufjf-dcc195-2019-3-lst1-jgabrielmaia/issues"
+  },
+  "homepage": "https://github.com/ufjf-dcc195/ufjf-dcc195-2019-3-lst1-jgabrielmaia#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
