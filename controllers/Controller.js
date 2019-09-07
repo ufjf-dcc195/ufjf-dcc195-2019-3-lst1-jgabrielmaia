@@ -1,5 +1,7 @@
 const fs = require('fs');
 const url = require('url');
+const primes = require('./../utils/Primes');
+const randomNumbers = require('./../utils/RandomNumbers');
 
 exports.index = (req, res) =>  {
     res.writeHead(200, {"Content-Type":"text/html"});
@@ -20,16 +22,12 @@ exports.about = (req, res) =>  {
     res.end();
 }
 
-randomNumberBetween = (start, end) => {
-    return Math.floor(Math.random() * (start - end + 1) + end);
-}
-
 exports.random = (req, res) => {
     let evens = new Array(50);
     let odds = new Array(50);
 
     for(let i = 0; i < 99; i++){
-        let x = randomNumberBetween(0, i * 3);
+        let x = randomNumbers.randomNumberBetween(0, i * 3);
         evens[i] = x * 2;
         odds[i] = x * 2 + 1;
     }
@@ -66,55 +64,9 @@ exports.primes = (req, res) => {
         res.write("<h2>Numbers out of bounds. Rule: N1 < N2 < 100");
         res.end();
     }
-    console.log(start);
-    let primes = calculatePrimesForRange(start, end);
-    primes.map((x) => res.write("<div>" + x + "</div>"));  
+
+    let primeList = primes.calculatePrimesForRange(start, end);
+    primeList.map((x) => res.write("<div>" + x + "</div>"));  
 
     res.end();
-}
-
-// source code: https://snippets.bentasker.co.uk/page-1705211104-Find-Prime-Numbers-in-Range-Javascript.html
-
-function calculatePrimesForRange(l,h){
-    var primes=[];
-    for (i=l; i<h; i++){
-
-        if (checkNumPrime(i)){
-          primes.push(i);
-        }
-
-    }
-    return primes;
-}
-
-// Check whether a number is a prime
-function checkNumPrime(n){
-
-    // Check whether the number is 1,2 or 3
-    if (n<4){
-        return true;
-    }
-
-    // Check the number isn't directly divisible by 2 or 3
-    if (n%2 == 0 || n%3 == 0){
-        return false;
-    }
-
-    var di=2;
-    var i = 5;
-
-    // Don't calculcate higher than the square root (rounded down if needed)
-    var lim = Math.floor(Math.sqrt(n));
-
-    while (i < lim){
-
-      if (n%i == 0){
-          return false;
-      }
-      i=i+di;
-      di=6-di;
-    }
-
-    // If we haven't already returned, n is prime
-    return true;
 }
