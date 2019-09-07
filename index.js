@@ -7,6 +7,7 @@ routes["/"] = controllers.index;
 routes["/index.html"] = controllers.index;
 routes["/sobre.html"] = controllers.about;
 routes["/aleatorio.html"] = controllers.random;
+routes["/primos.html"] = controllers.primes;
 routes["404"] = controllers.notFound;
 
 server.start(router.route, routes);
