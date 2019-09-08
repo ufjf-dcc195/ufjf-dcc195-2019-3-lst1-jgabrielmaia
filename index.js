@@ -1,15 +1,16 @@
 const server = require('./server');
 const router = require('./routes');
-const controllers = require('./controllers/Controller.js');
+const controller = require('./controllers/Controller.js');
 
 const routes = {};
-routes["/"] = controllers.index;
-routes["/index.html"] = controllers.index;
-routes["/sobre.html"] = controllers.about;
-routes["/aleatorio.html"] = controllers.random;
-routes["/primos.html"] = controllers.primes;
-routes["/equacao.html"] = controllers.equation;
-routes["/chess.html"] = controllers.chess;
-routes["404"] = controllers.notFound;
+routes["/"] = controller.index;
+routes["/index.html"] = controller.index;
+routes["/sobre.html"] = controller.about;
+routes["/aleatorio.html"] = controller.random;
+routes["/primos.html"] = controller.primes;
+routes["/equacao.html"] = controller.equation;
+routes["/xadrez.html"] = controller.chess;
+routes["/xadrez.json"] = controller.chessJson;
+routes["404"] = controller.notFound;
 
 server.start(router.route, routes);

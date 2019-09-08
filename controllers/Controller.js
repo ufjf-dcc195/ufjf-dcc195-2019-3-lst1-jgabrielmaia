@@ -1,9 +1,11 @@
 const fs = require('fs');
 const url = require('url');
+const qs = require('querystring');
+
 const primes = require('./../utils/Primes');
 const randomNumbers = require('./../utils/RandomNumbers');
-const qs = require('querystring');
 const solver = require('./../utils/QuadraticSolver');
+const moves = require('./../utils/KnightMoves');
 
 exports.index = (req, res) =>  {
     res.writeHead(200, {"Content-Type":"text/html"});
@@ -109,7 +111,43 @@ exports.equation = (req, res) => {
 
 exports.chess = (req, res) =>{
     res.writeHead(200,{"Content-Type":"text/html"});
-    let content = fs.readFileSync(__dirname + '/../pages/chess.html');
+    let content = fs.readFileSync(__dirname + '/../pages/chess.html', "utf-8");
+    let params = url.parse(req.url, true).query;
+    let col = params.col;
+    let row = params.row;
+
+    let squares = moves.knightMoves(col, row);    
+    let knightURL = "https://cdn3.iconfinder.com/data/icons/business-vol-15/100/Artboard_19-512.png";
+    let knight = squares.knight ? 
+                                "document.getElementById("+squares.knight+").style.backgroundColor = \"#50fa7b\"; " 
+                                + " var img = document.createElement('img'); "
+                                + " img.src = \""+ knightURL +"\";"
+                                + " img.setAttribute(\"style\", \"width:50px; position:relative; left:5px; \"); "
+                                + " document.getElementById("+squares.knight+").appendChild(img); " 
+                                : "";
+    let urColor = squares.upperRight ? "document.getElementById("+squares.upperRight+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ulColor = squares.upperLeft ? "document.getElementById("+squares.upperLeft+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lrColor = squares.lowerRight ? "document.getElementById("+squares.lowerRight+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let llColor = squares.lowerLeft ? "document.getElementById("+squares.lowerLeft+").style.backgroundColor = \"#ff79c6\"; " : "";
+        
+    content += "<script> function plotMoves() { "
+            + knight
+            + urColor
+            + ulColor
+            + lrColor
+            + llColor
+            +"} plotMoves();</script></html>";
     res.write(content);
+    res.end();
+}
+
+exports.chessJson = (req, res) =>{
+    res.writeHead(200,{"Content-Type":"application/json"});
+    let params = url.parse(req.url, true).query;
+    let col = params.col;
+    let row = params.row;
+
+    let squares = moves.knightMoves(col, row);
+    res.write(JSON.stringify(squares));
     res.end();
 }
