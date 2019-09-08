@@ -136,8 +136,8 @@ exports.chess = (req, res) =>{
     res.writeHead(200,{"Content-Type":"text/html"});
     let content = fs.readFileSync(__dirname + '/../pages/chess.html', "utf-8");
     let params = url.parse(req.url, true).query;
-    let col = params.col;
-    let row = params.row;
+    let col = params.coluna;
+    let row = params.linha;
 
     let squares = moves.knightMoves(col, row);    
     let knightURL = "https://cdn3.iconfinder.com/data/icons/business-vol-15/100/Artboard_19-512.png";
@@ -167,8 +167,8 @@ exports.chess = (req, res) =>{
 exports.chessJson = (req, res) =>{
     res.writeHead(200,{"Content-Type":"application/json"});
     let params = url.parse(req.url, true).query;
-    let col = params.col;
-    let row = params.row;
+    let col = params.linha;
+    let row = params.coluna;
 
     let squares = moves.knightMoves(col, row);
     res.write(JSON.stringify(squares));
