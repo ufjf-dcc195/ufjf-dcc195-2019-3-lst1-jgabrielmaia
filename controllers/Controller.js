@@ -106,3 +106,10 @@ exports.equation = (req, res) => {
         });
     }
 }
+
+exports.chess = (req, res) =>{
+    res.writeHead(200,{"Content-Type":"text/html"});
+    let content = fs.readFileSync(__dirname + '/../pages/chess.html');
+    res.write(content);
+    res.end();
+}

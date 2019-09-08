@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Xadrez</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding:0;
+        background-color: #282a36;
+    }
+
+    table {
+        border-collapse: collapse;
+        position: absolute;
+        width: 480px;
+        height: 480px;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%) rotate(-30deg) skew(.300rad);
+        background-color: black;
+        transition: 0.5s;
+        box-shadow: -10px 10px 10px rgba(0,0,0,.5);
+    }
+
+    table:hover {
+        top: 49%;
+        box-shadow: -15px 15px 15px rgba(0,0,0,.5);
+    }
+    
+    table tr:nth-child(odd){
+        background: linear-gradient(90deg, #f1f1f1 0%, #f1f1f1 50%, #333 50%, #333 100%);
+        background-size: 120px; 
+    }
+
+    table tr:nth-child(even){
+        background: linear-gradient(90deg, #333 0%, #333 50%, #f1f1f1 50%,#f1f1f1 100%);
+        background-size: 120px; 
+    }
+
+    tr{
+        width: 480px;
+        height: 60px;
+    }
+    td{
+        width: 60px;
+        height: 60px;
+    }
+</style>
+<body>
+        <table>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+</body>
+</html>
