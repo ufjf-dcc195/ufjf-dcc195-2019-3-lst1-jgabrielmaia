@@ -38,16 +38,23 @@ exports.random = (req, res) => {
         evens[i] = x * 2;
         odds[i] = x * 2 + 1;
     }
-    
+    res.write("<style>"
+                +"body{ background-color: #282a36; font-family:'Fira Sans', sans-serif; }"
+                + "div{ color: #ff79c6; padding: 3px; } "
+                + " ::-webkit-scrollbar { width: 10px;} "               
+                + " ::-webkit-scrollbar-track {background: #f1f1f1;} "
+                + " ::-webkit-scrollbar-thumb { background: #44475a;} "
+                + " ::-webkit-scrollbar-thumb:hover { background: #6272a4; }"
+                +"</style>");
     res.write("<div style='display: flex'>");
 
-    res.write("<div style='overflow-y: scroll; height:400px; width: 50%;  text-align: center;'>");
+    res.write("<div style='overflow-y: scroll; height:600px; width: 50%;  text-align: center;'>");
     evens.map((x) => res.write("<div>" + x + "</div>"));
     res.write("</div>");
 
     res.write("<br/>");
     
-    res.write("<div style='overflow-y: scroll; height:400px; width: 50%; text-align: center;'>");
+    res.write("<div style='overflow-y: scroll; height:600px; width: 50%; text-align: center;'>");
     odds.map((x) => res.write("<div>" + x + "</div>"));
     res.write("</div>");
     
@@ -59,6 +66,16 @@ exports.primes = (req, res) => {
     let params = url.parse(req.url, true).query;
     let start = params.n1;
     let end = params.n2;
+
+    res.write("<style>"
+                +"body{ background-color: #282a36; font-family:'Fira Sans', sans-serif; }"
+                + "div{ display:flex; justify-content:center; color: #ff79c6; padding: 3px; } "
+                + "h2{ color: #ff5555; } "
+                + " ::-webkit-scrollbar { width: 10px;} "               
+                + " ::-webkit-scrollbar-track {background: #f1f1f1;} "
+                + " ::-webkit-scrollbar-thumb { background: #44475a;} "
+                + " ::-webkit-scrollbar-thumb:hover { background: #6272a4; }"
+                +"</style>");
 
     if(!(start && end )){
         res.write("<h2>Por favor, insira dois inteiros validos.");
@@ -77,6 +94,12 @@ exports.primes = (req, res) => {
 
 exports.equation = (req, res) => {
     res.writeHead(200,{"Content-Type":"text/html"});
+    res.write("<style>"
+                + "body{ background-color: #282a36; font-family:'Fira Sans', sans-serif; }"
+                + "div{ color: #ff79c6;} "
+                + "p{ color: #ff79c6; font-size: 20pt;} "
+                + "h2{ color: #ff5555; } "
+                +"</style>");
         
     if(req.method == 'GET'){
         let equationForm = fs.readFileSync(__dirname + '/../pages/equation.html');
