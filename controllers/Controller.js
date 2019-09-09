@@ -5,7 +5,8 @@ const qs = require('querystring');
 const primes = require('./../utils/Primes');
 const randomNumbers = require('./../utils/RandomNumbers');
 const solver = require('./../utils/QuadraticSolver');
-const moves = require('./../utils/KnightMoves');
+
+const moves = require('../core/KnightMoves');
 
 exports.index = (req, res) =>  {
     res.writeHead(200, {"Content-Type":"text/html"});
