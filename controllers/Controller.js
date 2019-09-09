@@ -148,17 +148,25 @@ exports.chess = (req, res) =>{
                                 + " img.setAttribute(\"style\", \"width:50px; position:relative; left:5px; \"); "
                                 + " document.getElementById("+squares.knight+").appendChild(img); " 
                                 : "";
-    let urColor = squares.upperRight ? "document.getElementById("+squares.upperRight+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let ulColor = squares.upperLeft ? "document.getElementById("+squares.upperLeft+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let lrColor = squares.lowerRight ? "document.getElementById("+squares.lowerRight+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let llColor = squares.lowerLeft ? "document.getElementById("+squares.lowerLeft+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let urlColor = squares.upperRight ? "document.getElementById("+squares.upperRightLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ullColor = squares.upperLeft ? "document.getElementById("+squares.upperLeftLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lrlColor = squares.lowerRight ? "document.getElementById("+squares.lowerRightLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lllColor = squares.lowerLeft ? "document.getElementById("+squares.lowerLeftLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ursColor = squares.upperRight ? "document.getElementById("+squares.upperRightStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ulsColor = squares.upperLeft ? "document.getElementById("+squares.upperLeftStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lrsColor = squares.lowerRight ? "document.getElementById("+squares.lowerRightStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let llsColor = squares.lowerLeft ? "document.getElementById("+squares.lowerLeftStand+").style.backgroundColor = \"#ff79c6\"; " : "";
         
     content += "<script> function plotMoves() { "
             + knight
-            + urColor
-            + ulColor
-            + lrColor
-            + llColor
+            + urlColor
+            + ullColor
+            + lrlColor
+            + lllColor
+            + ursColor
+            + ulsColor
+            + lrsColor
+            + llsColor
             +"} plotMoves();</script></html>";
     res.write(content);
     res.end();

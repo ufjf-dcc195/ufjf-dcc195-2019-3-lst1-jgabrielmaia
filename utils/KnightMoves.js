@@ -1,10 +1,14 @@
 exports.knightMoves = (col, row) => {
     let squares    = {
         knight: '',
-        upperLeft: '',
-        upperRight: '',
-        lowerLeft: '',
-        lowerRight: ''
+        upperLeftLaid: '',
+        upperRightLaid: '',
+        lowerLeftLaid: '',
+        lowerRightLaid: '',
+        upperLeftStand: '',
+        upperRightStand: '',
+        lowerLeftStand: '',
+        lowerRightStand: ''
     };
 
     col = +col;
@@ -14,34 +18,62 @@ exports.knightMoves = (col, row) => {
         squares.knight = getSquare(col,row);
     }
 
-    let cul = col - 2;
-    let rul = row - 1;
+    let cull = col - 2;
+    let rull = row - 1;
     
-    if(isValidSquare(cul, rul)){
-        squares.upperLeft = getSquare(cul, rul);
+    if(isValidSquare(cull, rull)){
+        squares.upperLeftLaid = getSquare(cull, rull);
     }
 
-    let cur = col + 2;
-    let rur = row - 1;
+    let curl = col + 2;
+    let rurl = row - 1;
 
-    if(isValidSquare(cur, rur)){
-        squares.upperRight = getSquare(cur, rur);
+    if(isValidSquare(curl, rurl)){
+        squares.upperRightLaid = getSquare(curl, rurl);
     }
 
-    let cll = col - 2;
-    let rll = row + 1;
+    let clll = col - 2;
+    let rlll = row + 1;
     
-    if(isValidSquare(cll, rll)){
-        squares.lowerLeft = getSquare(cll, rll);
+    if(isValidSquare(clll, rlll)){
+        squares.lowerLeftLaid = getSquare(clll, rlll);
     }
 
-    let clr = col + 2;
-    let rlr = row + 1;
+    let clrl = col + 2;
+    let rlrl = row + 1;
     
-    if(isValidSquare(clr, rlr)){
-        squares.lowerRight = getSquare(clr, rlr);
+    if(isValidSquare(clrl, rlrl)){
+        squares.lowerRightLaid = getSquare(clrl, rlrl);
     }
     
+    let culs = col - 2;
+    let ruls = row - 1;
+    
+    if(isValidSquare(culs, ruls)){
+        squares.upperLeftStand = getSquare(culs, ruls);
+    }
+
+    let curs = col + 1;
+    let rurs = row - 2;
+
+    if(isValidSquare(curs, rurs)){
+        squares.upperRightStand = getSquare(curs, rurs);
+    }
+
+    let clls = col - 1;
+    let rlls = row + 2;
+    
+    if(isValidSquare(clls, rlls)){
+        squares.lowerLeftStand = getSquare(clls, rlls);
+    }
+
+    let clrs = col + 1;
+    let rlrs = row + 2;
+    
+    if(isValidSquare(clrs, rlrs)){
+        squares.lowerLeftStand = getSquare(clrs, rlrs);
+    } 
+
     return squares;
 }
 
