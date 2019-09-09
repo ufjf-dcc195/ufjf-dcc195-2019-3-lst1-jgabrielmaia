@@ -148,14 +148,14 @@ exports.chess = (req, res) =>{
                                 + " img.setAttribute(\"style\", \"width:50px; position:relative; left:5px; \"); "
                                 + " document.getElementById("+squares.knight+").appendChild(img); " 
                                 : "";
-    let urlColor = squares.upperRight ? "document.getElementById("+squares.upperRightLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let ullColor = squares.upperLeft ? "document.getElementById("+squares.upperLeftLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let lrlColor = squares.lowerRight ? "document.getElementById("+squares.lowerRightLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let lllColor = squares.lowerLeft ? "document.getElementById("+squares.lowerLeftLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let ursColor = squares.upperRight ? "document.getElementById("+squares.upperRightStand+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let ulsColor = squares.upperLeft ? "document.getElementById("+squares.upperLeftStand+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let lrsColor = squares.lowerRight ? "document.getElementById("+squares.lowerRightStand+").style.backgroundColor = \"#ff79c6\"; " : "";
-    let llsColor = squares.lowerLeft ? "document.getElementById("+squares.lowerLeftStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let urlColor = squares.upperRightLaid ? "document.getElementById("+squares.upperRightLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ullColor = squares.upperLeftLaid ? "document.getElementById("+squares.upperLeftLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lrlColor = squares.lowerRightLaid ? "document.getElementById("+squares.lowerRightLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lllColor = squares.lowerLeftLaid ? "document.getElementById("+squares.lowerLeftLaid+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ursColor = squares.upperRightStand ? "document.getElementById("+squares.upperRightStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let ulsColor = squares.upperLeftStand ? "document.getElementById("+squares.upperLeftStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let lrsColor = squares.lowerRightStand ? "document.getElementById("+squares.lowerRightStand+").style.backgroundColor = \"#ff79c6\"; " : "";
+    let llsColor = squares.lowerLeftStand ? "document.getElementById("+squares.lowerLeftStand+").style.backgroundColor = \"#ff79c6\"; " : "";
         
     content += "<script> function plotMoves() { "
             + knight

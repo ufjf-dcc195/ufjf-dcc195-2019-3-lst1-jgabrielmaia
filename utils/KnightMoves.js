@@ -46,8 +46,8 @@ exports.knightMoves = (col, row) => {
         squares.lowerRightLaid = getSquare(clrl, rlrl);
     }
     
-    let culs = col - 2;
-    let ruls = row - 1;
+    let culs = col - 1;
+    let ruls = row - 2;
     
     if(isValidSquare(culs, ruls)){
         squares.upperLeftStand = getSquare(culs, ruls);
@@ -71,7 +71,7 @@ exports.knightMoves = (col, row) => {
     let rlrs = row + 2;
     
     if(isValidSquare(clrs, rlrs)){
-        squares.lowerLeftStand = getSquare(clrs, rlrs);
+        squares.lowerRightStand = getSquare(clrs, rlrs);
     } 
 
     return squares;
